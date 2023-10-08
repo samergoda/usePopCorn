@@ -9,7 +9,7 @@ const KEY = "de0d74ce";
 //`https://www.omdbapi.com/?apikey=${KEY}&s=interstellar`
 
 const average = (arr) =>
-  arr.reduce((acc, cur, i, arr) => acc + cur / arr.length, 0);
+  arr?.reduce((acc, cur, i, arr) => acc + cur / arr.length, 0);
 
 const controller = new AbortController();
 export default function App() {
@@ -341,7 +341,7 @@ function WatchedSummry({ watched }) {
 function WatchedMovieList({ watched, onDelete }) {
   return (
     <ul className="list scrollbar-hidden">
-      {watched.map((movie) => (
+      {watched?.map((movie) => (
         <WatchedMovie movie={movie} key={movie.imdbID} onDelete={onDelete} />
       ))}
     </ul>
