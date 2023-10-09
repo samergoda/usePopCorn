@@ -15,7 +15,6 @@ const controller = new AbortController();
 export default function App() {
   const [query, setQuery] = useState("");
   const [selectId, setSelectId] = useState(null);
-
   const [watched, setWatched] = useState(() => {
     const storedValue = localStorage.getItem('watched');
     return JSON.parse(storedValue);
@@ -36,8 +35,9 @@ export default function App() {
   function handleCloseMovie() {
     setSelectId(null);
   }
+
   function handleAddWatched(movie) {
-    setWatched((watched) => [...watched, movie]);
+    setWatched( watched => [...watched, movie]&&[]);
   }
 
   return (
